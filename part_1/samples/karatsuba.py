@@ -21,14 +21,14 @@ def karatsuba(x: int, y: int):
 
     n = len(x)
     mid = n//2
-    # print(x, y)
+
     if n == 1:
         return int(x) * int(y)
     else:
         # a, b := first and second halves of x
         a = int(x[:mid])
         b = int(x[mid:])
-        # print(a, b)
+
         # c, d := first and second halves of y
         c = int(y[:mid])
         d = int(y[mid:])
@@ -48,7 +48,3 @@ def karatsuba(x: int, y: int):
         # compute 10^n · ac + 10^n/2 · adbc + bd using grade-school addition and return the result
         result = 10 ** n * ac + 10 ** (n / 2) * adbc + bd
         return result
-
-
-
-print(karatsuba(100, 2))

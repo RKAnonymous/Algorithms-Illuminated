@@ -1,0 +1,50 @@
+1. Karatsuba Algorithm
+
+Input: two n-digit positive integers x and y.
+Output: the product x · y.
+Assumption: n is a power of 2.
+    if n = 1 then
+        // base case
+        compute x · y in one step and return the result
+    else
+        // recursive case
+        a, b := first and second halves of x
+        c, d := first and second halves of y
+        compute p := a + b and q := c + d using grade-school addition
+        recursively compute ac := a · c, bd := b · d, and pq := p · q
+        compute adbc := pq ac bd using grade-school addition
+        compute 10 n · ac + 10 n/2 · adbc + bd using grade-school addition and return the result
+
+
+2. MergeSort Algorithm
+
+Input: array A of n distinct integers.
+Output: array with the same integers, sorted from smallest to largest.
+
+    base case: if array length smaller than 2 return array
+
+    C := recursively sort first half of A
+    D := recursively sort second half of A
+    return Merge (C,D)
+
+    2.1 Merge Algorithm
+
+    Input: sorted arrays C and D (length n/2 each).
+    Output: sorted array B (length n).
+    Simplifying assumption: n is even.
+
+        Initialize i and j index variables for C and D arrays, result array
+        while B size is smaller than the sum of C and B sizes
+            if item of C array at i is lower than the item of D at j
+                append C[i] item to result
+                increment i by 1
+            else:
+                append D[j] item to result
+                increment j by 1
+
+            if the end either array is reached,
+            add the remaining elements of the other array to the result
+
+        return the result
+
+    Useful resources: https://realpython.com/sorting-algorithms-python/#the-merge-sort-algorithm-in-python
