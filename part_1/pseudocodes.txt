@@ -48,3 +48,54 @@ Output: array with the same integers, sorted from smallest to largest.
         return the result
 
     Useful resources: https://realpython.com/sorting-algorithms-python/#the-merge-sort-algorithm-in-python
+
+
+3. Brute Force Searching Algorithm (Counting for Inversions of array)
+
+Input: array A of n distinct integers.
+Output: the number of inversions of A.
+
+    Initialize variable to count the occurring inversion
+
+    Loop over from i=0 to length(A)-1
+        Loop over from j=i+1 to length(A)
+            if A[i] > A[j]
+                increment number of inversions by 1
+
+    return number of inversions
+
+
+4. Merge Sort and Count Inversions Algorithm
+
+Input: array A of n distinct integers.
+Output: sorted array B with the same integers, and the number of inversions of A.
+
+    if n < 2
+        return A, 0
+    else
+        C: left_inversions = SortCountInv(first half of A)
+        D: right_inversions = SortCountInv(second half of A)
+        B: split_inversions = MergeCountSplitInv(C, D)
+
+        return B, left_inversions + right_inversions + split_inversions
+
+    4.1 Merge Count Split Inversion (Using Merge Algorithm above)
+
+        Input: sorted arrays C and D (length n/2 each).
+        Output: sorted array B (length n), number of inversions.
+        Simplifying assumption: n is even.
+
+            Initialize i and j index variables for C and D arrays, result array, inversionCount
+            while B size is smaller than the sum of C and D arrays' sizes
+                if item of C array at i is lower than the item of D at j
+                    append C[i] item to result
+                    increment i by 1
+                else:
+                    append D[j] item to result
+                    increment j by 1
+                    increment inversionCount by (n/2-i+1)
+
+                if the end either array is reached,
+                add the remaining elements of the other array to the result
+
+            return the result
