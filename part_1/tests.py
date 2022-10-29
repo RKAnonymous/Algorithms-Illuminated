@@ -1,6 +1,7 @@
 from part_1.samples.karatsuba import karatsuba
 from part_1.samples.merge_sort import merge_sort
 from part_1.samples.counting_inversion import brute_force_searching, sort_count_inv
+from part_1.samples.quick_sorting import quick_sort, quicksort
 
 
 def test_karatsuba():
@@ -45,3 +46,10 @@ def test_sort_count_inversions():
     assert sort_count_inv([1, 3, 4, 10, 10, 4, 3, 1]) == ([1, 1, 3, 3, 4, 4, 10, 10], 12)
     assert sort_count_inv([6, 5, 4, 3, 2, 1]) == ([1, 2, 3, 4, 5, 6], 15)
 
+
+def test_quick_sort():
+    assert quick_sort([]) == []
+    assert quick_sort([2]) == [2]
+    assert quick_sort([5, 6, 9]) == [5, 6, 9]
+    assert quick_sort([2, 1, 0]) == [0, 1, 2]
+    assert quick_sort([2, 1, 4, 3, 7, 5, 6, 9]) == [1, 2, 3, 4, 5, 6, 7, 9]

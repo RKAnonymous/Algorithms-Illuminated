@@ -99,3 +99,31 @@ Output: sorted array B with the same integers, and the number of inversions of A
                 add the remaining elements of the other array to the result
 
             return the result
+
+
+5. Quick Sorting Algorithm
+
+Input: array A of n distinct integers.
+Post condition: elements of A are sorted from smallest to largest.
+    if n <= 1 then
+        return                          // base case-already sorted
+
+    choose a pivot element p            // to-be-implemented
+    partition A around p                // to-be-implemented
+    recursively sort first part of A
+    recursively sort second part of A
+
+
+    5.1 Partition Algorithm
+
+    Input: array A of n distinct integers, left and right endpoints l, r -> {1, 2, . . . , n} with l <= r.
+    Post condition: elements of the subarray  A[l], A[l + 1], . . . , A[r] are partitioned around A[l].
+    Output: final position of pivot element.
+        p := A[l]
+        i := l + 1
+        for j := l + 1 to r do
+            if A[j] < p then
+                swap A[j] and A[i]           // if A[j] > p do nothing
+                i := i + 1                   // restores invariant
+            swap A[l] and A[i - 1]             // place pivot correctly
+        return i-1                       // report final pivot position
