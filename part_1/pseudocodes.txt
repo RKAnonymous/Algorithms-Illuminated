@@ -127,3 +127,22 @@ Post condition: elements of A are sorted from smallest to largest.
                 i := i + 1                   // restores invariant
             swap A[l] and A[i - 1]             // place pivot correctly
         return i-1                       // report final pivot position
+
+
+6. RSelect Algorithm
+
+Input: array A of n 1 distinct numbers, and an integer i 2 {1, 2, . . . , n}.
+Output: the ith order statistic of A.
+    if n = 1 then                                           // base case
+        return A[1]
+
+    choose pivot element p uniformly at random from A
+    partition A around p
+
+    j := p’s position in partitioned array
+    if j = i then                                           // you got lucky!
+        return p
+    else if j > i then
+        return RSelect(first part of A, i)
+    else                                                    // j < i
+        return RSelect(second part of A, i j)
