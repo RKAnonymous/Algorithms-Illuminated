@@ -1,4 +1,4 @@
-COMMIT_MSG = "default commit"
+COMMIT_MSG = default commit
 
 
 install:
@@ -11,6 +11,8 @@ format:
 	# No need to format the code for now, PyCharm IDE deals with this
 	#black *.py mylib/*.py tests/*.py
 run:
+	#pass
+build:
 	#pass
 push:
 	git add . && git commit -m "$(COMMIT_MSG)" && git push origin main
